@@ -11,7 +11,7 @@
       margin: 0;
       padding: 20px;
       background-color: #0e0e0e;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,192 +21,296 @@
     .banner-container {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 30px;
       align-items: center;
     }
 
     .banner {
-      width: 125px;
-      height: 125px;
+      width: 180px;
+      height: 160px;
       background: linear-gradient(135deg, #2f365a 0%, #1e2440 30%, #0f1220 100%);
-      border: 1px solid #404f61;
-      border-radius: 6px;
+      border: 2px solid #404f61;
+      border-radius: 8px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      padding: 6px;
+      padding: 12px;
       box-sizing: border-box;
       position: relative;
       overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      gap: 0;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 4px 15px rgba(0, 0, 0, 0.3);
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .banner::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent 30%, rgba(172, 184, 198, 0.15) 50%, transparent 70%);
-      animation: shimmer 4s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes shimmer {
-      0% {
-        transform: translateX(-100%) translateY(-100%) rotate(45deg);
-      }
-
-      100% {
-        transform: translateX(100%) translateY(100%) rotate(45deg);
-      }
+    .banner:hover {
+      transform: scale(1.05);
+      border-color: #02c3f8;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 6px 20px rgba(2, 195, 248, 0.2);
     }
 
     .header {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 6px;
-      margin-bottom: 12px;
+      margin-top: 4px;
+      margin-bottom: 8px;
     }
 
     .paysale-logo-img {
-      height: 35px;
+      height: 40px;
       width: auto;
       object-fit: contain;
-      filter: brightness(1.1) contrast(1.05);
+      filter: brightness(1.2) contrast(1.1);
+    }
+
+    .paysale-logo-text {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     }
 
     .offers-text {
-        color: #6babbd;
-        font-size: 15px;
-        font-weight: bold;
-        text-align: center;
-        line-height: 0.9;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-shadow:
-          0 0 8px #6babbd,
-          0 0 16px #6babbd,
-          0 0 24px #4a9eb3,
-          0 0 32px #4a9eb3,
-          0 0 1px #ffffff,
-          1px 1px 0px #ffffff,
-          -1px -1px 0px #ffffff,
-          1px -1px 0px #ffffff,
-          -1px 1px 0px #ffffff;
-        -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.7);
-        text-stroke: 0.5px rgba(255, 255, 255, 0.7);
-        animation: glow 2.5s ease-in-out infinite alternate;
-        margin-bottom: 6px;
-        transition: all 0.6s ease-in-out;
-        opacity: 1;
-        transform: scale(1) skew(-8deg);
-        font-family: Arial, sans-serif;
-        font-weight: 800;
-        font-style: italic;
-      }
+      color: #ffffff;
+      background: linear-gradient(135deg, #02c3f8, #0ea5e9);
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 2px 8px rgba(2, 195, 248, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      opacity: 1;
+      transform: scale(1);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+      min-height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
+    .offers-text:hover {
+      background: linear-gradient(135deg, #0ea5e9, #02c3f8);
+      box-shadow:
+        0 4px 12px rgba(2, 195, 248, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
 
     .offers-text.fade-out {
       opacity: 0;
-      transform: scale(0.8) rotateX(90deg) skew(-8deg);
+      transform: scale(0.9);
     }
 
     .offers-text.fade-in {
       opacity: 1;
-      transform: scale(1) rotateX(0deg) skew(-8deg);
+      transform: scale(1);
     }
 
-    @keyframes glow {
-      0% {
-        text-shadow:
-          0 0 8px #6babbd,
-          0 0 16px #6babbd,
-          0 0 24px #4a9eb3,
-          0 0 32px #4a9eb3;
-        filter: brightness(1);
-      }
+    .separator {
+      width: 90%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #404f61, transparent);
+      margin: 0;
+    }
 
+    /* Добавляем индикаторы */
+    .indicators {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: #02c3f8;
+      box-shadow: 0 0 8px rgba(2, 195, 248, 0.6);
+    }
+
+    /* Улучшенная анимация мерцания */
+    @keyframes subtle-glow {
+
+      0%,
       100% {
-        text-shadow:
-          0 0 12px #6babbd,
-          0 0 24px #6babbd,
-          0 0 36px #4a9eb3,
-          0 0 48px #4a9eb3;
-        filter: brightness(1.2);
+        box-shadow:
+          0 2px 8px rgba(2, 195, 248, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      50% {
+        box-shadow:
+          0 2px 12px rgba(2, 195, 248, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
       }
     }
 
-    .banner:hover {
-      transform: scale(1.02);
-      transition: transform 0.3s ease;
+    .offers-text {
+      animation: subtle-glow 3s ease-in-out infinite;
     }
 
     .banner:hover .offers-text {
-      animation-duration: 1.5s;
+      animation: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 320px) {
+      .banner {
+        width: 160px;
+        height: 140px;
+      }
+
+      .offers-text {
+        font-size: 16px;
+        padding: 6px 10px;
+      }
+
+      .paysale-logo-text {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="banner-container">
-    <div class="banner">
+    <div class="banner" onclick="handleBannerClick()">
       <div class="header">
-        <img class="paysale-logo-img"
-          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMTAwIDMwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMzAiIGZpbGw9IiMyZjM2NWEiIHJ4PSI0Ii8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjEyIDEyIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAxNSAxNSkiLz48Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtZGFzaGFycmF5PSI2IDYiIHRyYW5zZm9ybT0icm90YXRlKC00NSAxNSAxNSkiLz48dGV4dCB4PSIzMiIgeT0iMTkiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiIGxldHRlci1zcGFjaW5nPSIxcHgiPlBBWVNBTEU8L3RleHQ+PC9zdmc+"
-          alt="PAYSALE logo" />
+        <img class="paysale-logo-img" src="./Logo-1.jpg" alt="PAYSALE Logo">
+        <p class="paysale-logo-text">paysale</p>
       </div>
-      <hr style="width: 100%; margin: 0; transform: translateY(-10px);">
-      <div class="offers-text" id="offersText">DATING<br>OFFERS</div>
+      <div class="separator"></div>
+      <div class="offers-text" id="offersText">DATING</div>
+      <div class="indicators">
+        <div class="indicator active" data-index="0"></div>
+        <div class="indicator" data-index="1"></div>
+        <div class="indicator" data-index="2"></div>
+      </div>
     </div>
   </div>
 
   <script>
     const offersTexts = [
-      'DATING<br>OFFERS',
-      'SWEEPSTAKES<br>OFFERS',
-      'INSURANCE<br>OFFERS'
+      'DATING',
+      'SWEEPSTAKES',
+      'INSURANCE'
+    ];
+
+    const urls = [
+      'https://example.com/dating',
+      'https://example.com/sweepstakes',
+      'https://example.com/insurance'
     ];
 
     let currentIndex = 0;
     const textElement = document.getElementById('offersText');
+    const indicators = document.querySelectorAll('.indicator');
+    let autoChangeInterval;
 
-    function changeText() {
-      // Начинаем 3D затухание
+    function updateIndicators() {
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function changeText(newIndex = null) {
+      if (newIndex !== null) {
+        currentIndex = newIndex;
+      } else {
+        currentIndex = (currentIndex + 1) % offersTexts.length;
+      }
+
+      // Плавная смена текста
       textElement.classList.add('fade-out');
 
       setTimeout(() => {
-        // Меняем текст в середине анимации
-        currentIndex = (currentIndex + 1) % offersTexts.length;
         textElement.innerHTML = offersTexts[currentIndex];
-
-        // Убираем класс затухания и добавляем появление
         textElement.classList.remove('fade-out');
         textElement.classList.add('fade-in');
+        updateIndicators();
 
         setTimeout(() => {
           textElement.classList.remove('fade-in');
-        }, 300);
-      }, 300);
+        }, 400);
+      }, 200);
     }
 
-    // Запускаем смену текста каждые 2.5 секунды
-    setInterval(changeText, 2500);
+    function startAutoChange() {
+      autoChangeInterval = setInterval(changeText, 4000); // Увеличили интервал для лучшей читаемости
+    }
 
-    // Добавляем интерактивность
+    function stopAutoChange() {
+      clearInterval(autoChangeInterval);
+    }
+
+    function handleBannerClick() {
+      // Открываем соответствующую ссылку
+      const url = urls[currentIndex];
+      console.log(`Переход на: ${url} (${offersTexts[currentIndex]})`);
+      // window.open(url, '_blank'); // Раскомментируйте для реальных ссылок
+
+      // Показываем уведомление
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #02c3f8;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: bold;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      `;
+      notification.textContent = `Клик по: ${offersTexts[currentIndex]}`;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.remove();
+      }, 2000);
+    }
+
+    // Обработчики событий для индикаторов
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', (e) => {
+        e.stopPropagation();
+        stopAutoChange();
+        changeText(index);
+        setTimeout(startAutoChange, 2000); // Возобновляем автосмену через 2 сек
+      });
+    });
+
+    // Останавливаем автосмену при наведении
     const banner = document.querySelector('.banner');
+    banner.addEventListener('mouseenter', stopAutoChange);
+    banner.addEventListener('mouseleave', startAutoChange);
 
-    banner.addEventListener('mouseenter', () => {
-      textElement.style.animationDuration = '1s';
-    });
-
-    banner.addEventListener('mouseleave', () => {
-      textElement.style.animationDuration = '2.5s';
-    });
+    // Запускаем автосмену
+    startAutoChange();
   </script>
 </body>
 
